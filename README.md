@@ -6,7 +6,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the `install-elk.yml` file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _![Filebeat Playbook](Ansible/filebeat-playbook.yml)._
+  - _![Filebeat Playbook](Ansible/filebeat.yml)._
 
 This document contains the following details:
 - Description of the Topologu
@@ -38,33 +38,33 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
 | Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| Web-1    |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Web-1    |   Redundancy       |    10.0.0.5        | Linux                 |
+| Web-2     |  Redundancy        |           10.0.0.6 |      Liniux            |
+| Web-3    | Redundancy          |            10.0.0.8|         Linux      |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the `Jumpbox` machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- Web-1: Ip
-- Web-2: 
-- Web-3: 10.0...
-- Elk-VM: 10.1...
+- Web-1: 10.0.0.5
+- Web-2: 10.0.0.6
+- Web-3: 10.0.0.8
+- Elk-VM: 10.1.0.4
 
 Machines within the network can only be accessed by `Jumpbox w/ Ansible Container`.
 - _Which machine did you allow to access your ELK VM? What was its IP address?_
-  - The `Jumpbox` with IP Address: 10.0.. 
+  - The `Jumpbox` with IP Address: 10.0.0.7
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
 | Jump Box | Yes, only from my personal machine              | 10.0.0.1 10.0.0.2    |
-| Web-1          | HTTP - Yes ---- SSH - No                     |                      |
-| Web-2          | HTTP - Yes ---- SSH - No                       |                      |
-| Web-3          | HTTP - Yes ---- SSH - No                       |                      |
-| Elk-VM      | HTTP - Yes ---- SSH - No                       |                      |
+| Web-1          | HTTP - Yes ---- SSH - No                     |           10.0.0.5           |
+| Web-2          | HTTP - Yes ---- SSH - No                       |         10.0.0.6             |
+| Web-3          | HTTP - Yes ---- SSH - No                       |         10.0.0.8             |
+| Elk-VM      | HTTP - Yes ---- SSH - No                       |             10.1.0.4         |
 
 ### Elk Configuration
 
@@ -128,3 +128,4 @@ _Answer the following questions to fill in the blanks:_
   - http://52.179.213.172:5601/
  
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+                `ansible-playbook my-playbook.yml`
