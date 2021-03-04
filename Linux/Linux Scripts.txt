@@ -1,0 +1,19 @@
+Step 1: Create, Extract, Compress, and Manage tar Backup Archives
+Command to extract the TarDocs.tar archive to the current directory:
+sudo tar -xvvf TarDocs.tar
+
+Command to create the Javaless_Doc.tar archive from the TarDocs/ directory, while excluding the TarDocs/Documents/Java directory:
+sudo tar -cvvf javaless_Docs.tar -exclude='~/Projects/TarDocs?Documents/Java"
+
+Command to ensure Java/ is not in the new Javaless_Docs.tar archive
+sudo tar -tf javaless_Docs.tar | grep Java
+
+
+Step 3: Write Basic Bash Scripts
+Brace expansion command to create the four subdirectories
+mkdir -p backups//{freemem,diskuse,openlist,freedisk]
+
+Paste your system.sh script edits below:
+free >~/backups/freemen/free_mem.txt
+du>~/backups/diskuse/disk_usage.txt
+
