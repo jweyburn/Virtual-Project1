@@ -1,19 +1,26 @@
-Step 1: Create, Extract, Compress, and Manage tar Backup Archives
-Command to extract the TarDocs.tar archive to the current directory:
-sudo tar -xvvf TarDocs.tar
+echo -e "IP Info: $(ip addr | head -9 | tail -1) \n"
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+      valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+      valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:16:3e:5e:6c:00 brd ff:ff:ff:ff:ff:ff
+    inet 10.137.0.21/32 brd 10.255.255.255 scope global eth0
+      valid_lft forever preferred_lft forever
+    inet6 fe80::216:3eff:fe5e:6c00/64 scope link
+      valid_lft forever preferred_lft forever
 
-Command to create the Javaless_Doc.tar archive from the TarDocs/ directory, while excluding the TarDocs/Documents/Java directory:
-sudo tar -cvvf javaless_Docs.tar -exclude='~/Projects/TarDocs?Documents/Java"
 
-Command to ensure Java/ is not in the new Javaless_Docs.tar archive
-sudo tar -tf javaless_Docs.tar | grep Java
+echo -e "IP Info: $(ip addr | head -9 | tail -1) \n"
 
-
-Step 3: Write Basic Bash Scripts
-Brace expansion command to create the four subdirectories
-mkdir -p backups//{freemem,diskuse,openlist,freedisk]
-
-Paste your system.sh script edits below:
-free >~/backups/freemen/free_mem.txt
-du>~/backups/diskuse/disk_usage.txt
-
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+      valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+      valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:16:3e:5e:6c:00 brd ff:ff:ff:ff:ff:ff
+    inet 10.137.0.21/32 brd 10.255.255.255 scope global eth0
